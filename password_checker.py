@@ -8,8 +8,15 @@ import getpass
 import time
 
 def main():
+    num_char = 0
     while True:
         password_one = getpass.getpass("Make your password: ")
+        for char in password_one:
+            num_char += 1
+        if num_char < 6:
+            print("")
+            print("Password is to short, enter new password.\n")
+            return main()
         for char in password_one:
             print(char, end="", flush=True)
             time.sleep(0.2)
